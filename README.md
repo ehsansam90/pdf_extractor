@@ -14,5 +14,5 @@ I deployed the **dslim/bert-base-NER model (Hugging Face)** to extract **named e
 6. **Cloud Logging for Monitoring** – Tracked API usage, errors, and system health.  
 
 ## **Architecture Overview**  
-![Flowchart](flowchart.png)
+![Flowchart](flowchart.jpg)
 
