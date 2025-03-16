@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Information Extractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #ddd;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>PDF Information Extractor</h2>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        {% if extracted_text %}
+            <h3>Extracted Text:</h3>
+            <p>{{ extracted_text }}</p>
+
+            <h3>Named Entity Recognition (NER) Results:</h3>
+            {% if ner_results %}
+                <table>
+                    <tr>
+                        <th>Entity</th>
+                        <th>Text</th>
+                        <th>Score</th>
+                    </tr>
+                    {% for result in ner_results %}
+                        <tr>
+                            <td>{{ result.Entity }}</td>
+                            <td>{{ result.Text }}</td>
+                            <td>{{ result.Score }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No entities found.</p>
+            {% endif %}
+
+            <h3>Extracted Phone Numbers (ML-Based):</h3>
+            {% if phone_numbers %}
+                <ul>
+                    {% for number in phone_numbers %}
+                        <li>{{ number }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No phone numbers found.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

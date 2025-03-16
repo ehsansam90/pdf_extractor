@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pdf_extractor:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads  # Persist uploaded PDFs
+    environment:
+      - FLASK_ENV=production
