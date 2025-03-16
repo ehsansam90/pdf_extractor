@@ -14,19 +14,5 @@ I deployed the **dslim/bert-base-NER model (Hugging Face)** to extract **named e
 6. **Cloud Logging for Monitoring** – Tracked API usage, errors, and system health.  
 
 ## **Architecture Overview**  
-(Refer to the flowchart image added separately in the repo.)  
+![Flowchart](flowchart.png)
 
-## **Demo Video** 🎥  
-To see the project in action, watch the demo video below:  
-
-### **Download or View the Demo:**  
-[Click here to download the demo](flowchart_1fe64a70.mp4
-)  
-
-### **Inline Playback (For Supported Platforms):**  
-```html
-<video width="720" height="400" controls>
-  <source src="flowchart_1fe64a70.mp4
-  " type="video/mp4">
-  Your browser does not support the video tag.
-</video>
